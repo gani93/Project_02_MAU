@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "ReviewDAO">
+    <insert id = "insertReview">
+		<![CDATA[
+        insert into review values(#{placeSeq}, #{review}, #{userSeqId}, #{placeState},REVIEWSEQ.nextval)
+        ]]>
+    </insert>
+    
+    <select id = "getReview" resultType="review">
+		<![CDATA[
+        select * from review where placeSeq = #{placeSeq}
+        ]]>
+    </select>
+    
+    <delete id = "deleteReview">
+		<![CDATA[
+        delete from review where reviewSeq = #{reviewSeq}
+        ]]>
+    </delete>
+
+</mapper>

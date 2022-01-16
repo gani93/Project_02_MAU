@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "MapFavoriteDAO">
+    <insert id = "insertFavorite">
+		<![CDATA[
+        insert into mapfavorite values(#{mapSeq},#{userSeqId})
+        ]]>
+    </insert>
+    <delete id = "deleteFavorite">
+    <![CDATA[
+        delete from mapfavorite where mapseq=#{mapSeq} and userseqid=#{userSeqId}
+        ]]>
+    </delete>
+    <select id="getFavorite" resultType="mapFavorite">
+    	<![CDATA[
+    	select * from mapfavorite where mapseq=#{mapSeq} and userseqid=#{userSeqId}
+    	]]>
+    </select>
+    <select id="getFavoriteUserSeqId" resultType="maps">
+    	<![CDATA[
+    	select * from map where mapseq=#{mapSeq}
+    	]]>
+    </select>
+    <select id="getFavoriteMapSeq" resultType="mapFavorite">
+    <![CDATA[
+    	select DISTINCT mapseq from mapfavorite where mapseq=#{mapSeq}
+    	]]>
+    </select>
+    <delete id="deleteFavoriteNoUserSeqId">
+    <![CDATA[
+        delete from mapfavorite where mapseq=#{mapSeq}
+        ]]>
+    </delete>
+
+</mapper>

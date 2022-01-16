@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "PlaceDAO">
+	
+    <select id = "getPlace" resultType="place">
+		<![CDATA[
+        select * from place where placeseq = #{placeSeq}
+        ]]>
+    </select>
+    
+    <insert id = "insertPlace">
+		<![CDATA[
+         insert into place values(MAUPLACESEQ.nextval,#{placeId},#{placeNorthEast},#{placeSouthWest},#{placeName},#{placeAddr})
+        ]]>
+    </insert>
+    
+    <select id = "getPlaceSeq" resultType="place">
+		<![CDATA[
+        select * from place where placeSeq = (SELECT max(placeSeq) FROM place)
+        ]]>
+    </select>
+    
+    <select id = "getPlaceId" resultType="place">
+		<![CDATA[
+        select * from place where placeId = #{placeId}
+        ]]>
+    </select>
+    
+     <select id = "getPlacebyId" resultType="place">
+      <![CDATA[
+        select placeSeq from placefavorite where userSeqId = #{userSeqId}
+        ]]>
+    </select>
+    
+    <select id = "getPlaceList" resultType="place">
+        SELECT *
+      from
+      (SELECT p.*, (( ACOS(
+      SIN(#{placeSouthWest} * 3.14 / 180) * SIN(placeSouthWest * 3.14 / 180) + COS(#{placeSouthWest} * 3.14 / 180) * COS(placeSouthWest* 3.14 / 180) * COS((#{placeNorthEast} - placeNorthEast) * 3.14 / 180)) * 180 / 3.14) * 60 * 1.1515) as distance
+      from place p)
+      <![CDATA[where distance <=1]]>
+    </select>
+    
+    
+</mapper>

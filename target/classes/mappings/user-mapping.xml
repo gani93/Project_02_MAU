@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="UserDAO">
+
+	<select id="getUser" resultType="user">
+     	<![CDATA[
+		select * from mauuser where userId = #{userId} and userNickName = #{userNickName}
+		]]>
+	</select>
+
+	<select id="getDetail" resultType="user">
+     	<![CDATA[
+		select * from mauuser where userSeqId = #{userSeqId}
+		]]>
+	</select>
+
+	<insert id="insertUser">
+        <![CDATA[
+       insert into mauuser(userId,userSeqId,userNickName,userIcon) values(#{userId},MAUUSERSEQ.nextval,#{userNickName},'👤')
+        ]]>
+	</insert>
+
+	<update id="updateUser">
+    	 <![CDATA[
+      	update mauuser set userInform = #{userInform}, userIcon = #{userIcon} where userId = #{userId}
+        ]]>
+	</update>
+
+	<select resultType="user" id="mypageGetUser">
+	<![CDATA[
+    	select * from mauuser where userSeqId=#{userSeqId}
+    ]]>
+	</select>
+</mapper>

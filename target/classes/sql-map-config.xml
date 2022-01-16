@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+<properties resource = "db.properties"></properties>
+    
+    <typeAliases>
+        <typeAlias type="com.spring.mau.mapview.MapViewVO" alias="mapView"/>
+        <typeAlias type="com.spring.mau.user.UserVO" alias="user"/>
+        <typeAlias type="com.spring.mau.userplace.UserPlaceVO" alias="userPlace"/>
+        <typeAlias type="com.spring.mau.mapplace.MapPlaceVO" alias="mapPlace"/>
+        <typeAlias type="com.spring.mau.map.MapVO" alias="maps"/>
+        <typeAlias type="com.spring.mau.place.PlaceVO" alias="place"/>
+        <typeAlias type="com.spring.mau.mapfavorite.MapFavoriteVO" alias="mapFavorite"/>
+        <typeAlias type="com.spring.mau.review.ReviewVO" alias="review"/>
+        <typeAlias type="com.spring.mau.upload.UploadVO" alias="upload"/>
+        <typeAlias type="com.spring.mau.placefavorite.PlaceFavoriteVO" alias="placeFavorite"/>
+    </typeAliases>
+    
+
+    
+    <mappers>
+    	<mapper resource="mappings/mapfavorite-mapping.xml"/>
+    	<mapper resource="mappings/map-mapping.xml"/>
+        <mapper resource = "mappings/mapview-mapping.xml"/>
+        <mapper resource = "mappings/user-mapping.xml"/>
+        <mapper resource = "mappings/mapplace-mapping.xml"/>
+        <mapper resource = "mappings/userplace-mapping.xml"/>
+        <mapper resource = "mappings/place-mapping.xml"/>
+       	<mapper resource = "mappings/review-mapping.xml"/>
+       	<mapper resource = "mappings/upload-mapping.xml"/>
+       	<mapper resource = "mappings/placefavorite-mapping.xml"/>
+    </mappers>
+</configuration>

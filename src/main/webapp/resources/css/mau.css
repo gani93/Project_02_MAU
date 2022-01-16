@@ -1,0 +1,200 @@
+@charset "UTF-8";
+.shadow {
+    padding: 30px;
+    border-radius: 12px;
+}
+
+
+#popup_close {
+    position: relative;
+    left: 89%;
+}
+
+.uk-modal-dialog border-radius shadow {
+    /* width: 760px; */
+    height: 800px;
+    margin: auto ;
+}
+
+.place_name_text {
+    width: 100%;
+    color: #0581BB;
+    font-size: 26px;
+    font-weight: 600;
+    padding-bottom: 6px;
+}
+
+@font-face {
+    font-family: 'S-CoreDream-3Light';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.img_upload_box {
+    width: 270px;
+    background-color: #E5E5E5;
+    text-align: center;
+    font-size: 15px;
+    color: #666666;
+    font-weight: lighter;
+    line-height: 165%;
+    font-family: 'S-CoreDream-9Black';
+    padding-bottom:20px;
+    display: flex;
+    height: 200px;
+}
+
+
+.size {
+    justify-content: center;
+    /* display: flex; */
+    cursor: pointer;
+    text-align: center;
+    width: 300px;
+    margin-top: 10px;
+    font-weight: 500;
+    padding-top:20px;
+    font-weight: 600;
+}
+
+div#img_input {
+    width: 280px;
+}
+
+.img_upload {
+    margin-top: 40px;
+}
+
+.info-box {
+   /*  width: 690px; */
+    /* height: 250px; */
+    float: left;
+    color: #666666;
+    font-family: 'S-CoreDream-9Black';
+    font-size: 15px;
+    font-weight: 600;
+    padding: 20px;
+    padding-top: 30px;
+}
+
+.comment-cards {
+    width: 100%;
+    padding: 17px 20px 15px;
+    box-sizing: border-box;
+    position: relative;
+    background-color: #FEFEFE;
+}
+
+.title {
+    padding-bottom: 10px;
+    font-size: 16px;
+}
+
+/* 이모티콘 */
+.uk-width-1-5 {
+    float: left;
+    box-sizing: border-box;
+    cursor: pointer;
+    background-color: #FFFFFF;
+    margin: 17px;
+}
+
+.uk-width-1-6 {
+    float: left;
+    box-sizing: border-box;
+    cursor: pointer;
+    background-color: #FFFFFF;
+    margin: 17px;
+}
+
+.text_box {
+    transform-style: left;
+    display: flex;
+    position: relative;
+    left: 20px;
+    width: 400px;
+}
+
+.text {
+    display: inline-flex;
+    color: darkgray;
+    width: 100px;
+    padding-left: 5px;
+}
+
+.emoji-box.bg-white.border-radius.shadow {
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+}
+
+.emoji-list {
+    width: 500px;
+}
+
+
+/* url 공유 */
+.share-box {
+    float: left;
+    display: flex;
+}
+
+#share-place-btn {
+    height: 20px;
+    width: 50px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+#kakao_url {
+    position: relative;
+    right: 20px;
+    bottom: 20px;
+}
+
+.share-btn.shadow.kakao {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.share-btn.shadow.facebook {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.title_2 {
+    margin-top: 100px;
+    margin-bottom: 20px;
+    font-size:16px;
+}
+
+/* 지도 */
+#info-map {
+    height: 280px;
+    width: 430px;
+}
+
+/* 즐겨찾기 */
+input[type="checkbox"]+label {
+    display: block;
+    position: relative;
+    width: 35px;
+    bottom: 55px;
+    height: 35px;
+    background: url(/mau/image/favoriteCheck/heart_off.png) no-repeat 0 0px/ contain;
+	left: 96%;
+}
+
+input[type='checkbox']:checked+label {
+    background: url(/mau/image/favoriteCheck/heart_on.png) no-repeat 0 0px/ contain;
+}
+/* 주소 */
+#modal_place_addr {
+    font-weight: bold;
+    color: darkorange;
+    font-size: 16px;
+}

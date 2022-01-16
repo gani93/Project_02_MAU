@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "MapViewDAO">
+    <select id = "getMapView" resultType = "mapView">
+      <![CDATA[
+        select * from map_view where mapseq = #{mapSeq}
+        ]]>
+    </select>
+    <select id="getMapSeq" resultType="mapView">
+       <![CDATA[
+       select DISTINCT mapname,mapseq from map_view where userseqid=#{userSeqId}
+       ]]>
+    </select>
+    
+    <select id="getRandomMap" resultType="mapView">
+       <![CDATA[
+       select DISTINCT mapicon,mapname,mapseq from map_view where shareyn=1 and maptype=0  
+       ]]>
+    </select>
+    
+    <select id="getGuiderPlace" resultType="mapView">
+       <![CDATA[
+       select * from map_view where userseqid = #{userSeqId}
+       ]]>
+    </select>
+    
+     <select id="getBySeq" resultType="mapView">
+       <![CDATA[
+       select DISTINCT mapicon,mapname,mapseq from map_view where mapseq=#{mapSeq} and shareyn=1
+       ]]>
+    </select>
+    
+    <select id="getPlaceCnt" resultType="mapView">
+       <![CDATA[
+       select DISTINCT placecnt from place_cnt where mapseq=#{mapSeq} 
+       ]]>
+    </select>
+    <select id="getNewestMap" resultType="mapView">
+       <![CDATA[
+       select DISTINCT mapicon,mapname,mapseq from map_view where maptype=1 and shareyn=1 order by mapseq desc
+       ]]>
+    </select>
+    
+     <select id="getHotUser" resultType="mapView">
+       <![CDATA[
+       select userseqid,count(distinct placeseq) placecnt,usernickname,usericon from map_view group by userseqid,usernickname,usericon order by placecnt desc
+       ]]>
+    </select>
+    
+     <select id="favoriteMap" resultType="mapView">
+       <![CDATA[
+       select * from mapfavorite_cnt where maptype=0 and shareyn=1 order by mcnt desc
+       ]]>
+    </select>
+    
+    <select id="favoriteGuide" resultType="mapView">
+       <![CDATA[
+       select * from mapfavorite_cnt where maptype=1 and shareyn=1 order by mcnt desc
+       ]]>
+    </select>
+    
+     <select id="favoritePlace" resultType="mapView">
+       <![CDATA[
+       select placeseq from placefavorite_cnt order by pcnt desc
+       ]]>
+    </select>
+    
+    <select id="getBySeq2" resultType="mapView">
+       <![CDATA[
+       select DISTINCT mapicon,mapname,mapseq from map where mapseq=#{mapSeq}
+       ]]>
+    </select>
+    
+    <select id="getRandomGuide" resultType="mapView">
+       <![CDATA[
+       select DISTINCT mapicon,mapname,mapseq from map_view where maptype=1 and shareyn=1
+       ]]>
+    </select>
+    
+    <select id="getkeyword" resultType="mapView">
+       <![CDATA[
+       select * from map_view where placeSeq = #{placeSeq}
+       ]]>
+    </select>
+    
+    <select id = "getPlace2" resultType="mapView">
+      <![CDATA[
+        select * from map_view where placeSeq = #{placeSeq}
+        ]]>
+    </select>
+    
+    
+</mapper>

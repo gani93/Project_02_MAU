@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "MapDAO">
+    <insert id = "insertMap">
+		<![CDATA[
+        insert into map values(maumapseq.nextval,#{mapName},#{mapIcon},#{userSeqId},#{keyWord},#{kateGory},#{shareYn},0,0,null)
+        ]]>
+    </insert>
+    <insert id = "insertGuideMap">
+		<![CDATA[
+        insert into map values(maumapseq.nextval,#{mapName},#{mapIcon},#{userSeqId},#{keyWord},#{kateGory},1,1,0,null)
+        ]]>
+    </insert>
+    <select id="getMapList" resultType="maps">
+    	<![CDATA[
+    	select * from map where userseqid=#{userSeqId}
+    	]]>
+    </select>
+    
+    <select id="getguideMapList" resultType="maps">
+    	<![CDATA[
+    	select * from map where userseqid=#{userSeqId} and maptype = 1
+    	]]>
+    </select>
+    
+    <select id="getguiderMapList" resultType="maps">
+    	<![CDATA[
+    	select * from map where userseqid=#{userSeqId} and maptype = 0
+    	]]>
+    </select>
+    <select id="getMap" resultType="maps">
+       <![CDATA[
+       select * from map where mapSeq=#{mapSeq}
+       ]]>
+    </select>
+    <select id="getguiderMapListAll" resultType="maps">
+    	<![CDATA[
+    	select * from map where maptype = 1 and shareyn=1
+    	]]>
+    </select>
+    
+    <select id="getguideMapListAll" resultType="maps">
+    	<![CDATA[
+    	select * from map where maptype = 0 and shareyn=1
+    	]]>
+    </select>
+    
+    
+    <delete id="deleteMap">
+	    <![CDATA[
+	    delete from map where mapseq=#{mapSeq}
+	    ]]>
+    </delete>
+	<update id="updateMap">
+	update map set mapname=#{mapName} , mapicon =#{mapIcon}, keyword= #{keyWord}, kategory= #{kateGory}, shareyn = #{shareYn} where mapseq = #{mapSeq}
+	</update>
+	
+	    <select id = "searchMap" resultType="maps">
+        SELECT * FROM map WHERE (mapName LIKE '%'||#{search}||'%' or keyWord LIKE '%'||#{search}||'%') and shareyn=1
+    </select>
+    
+    <select id = "searchMapCategory" resultType="maps">
+        SELECT * FROM map WHERE (mapName LIKE '%'||#{search}||'%' or keyWord LIKE '%'||#{search}||'%') and kateGory like '%'||#{searchKategory}||'%' and shareyn=1
+    </select>
+    
+    <select id="getPlaceCnt" resultType="Integer">
+       <![CDATA[
+       select placeCnt from mapplace_cnt where mapSeq=#{mapSeq}
+       ]]>
+    </select> 
+    
+    <select id="getMapSeq" resultType="maps">
+       <![CDATA[
+       select mapseq from mapfavorite where userseqid=#{userSeqId}
+       ]]>
+    </select>
+    
+    <select id="getfvcnt" resultType="maps">
+         select count(mapseq) fvcnt from mapfavorite where userseqid=#{userSeqId}
+    </select>
+    
+    <select id="getplcnt" resultType="maps">
+         select count(placeseq) plcnt from placefavorite where userseqid=#{userSeqId}
+    </select>
+	
+	
+</mapper>

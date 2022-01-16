@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "MapPlaceDAO">
+    <select id = "getMapPlaceList" resultType = "mapPlace">
+		<![CDATA[
+        select * from mapplace where mapseq = #{mapSeq}
+        ]]>
+    </select>
+    <insert id = "insertMapPlace"><!-- 이미 있는 맵-장소 연결이면 추가 안되게 처리 -->
+		<![CDATA[
+        INSERT INTO mapplace (mapseq, placeseq) select #{mapSeq}, #{placeSeq} from dual
+        WHERE NOT EXISTS (SELECT * FROM mapplace WHERE mapseq = #{mapSeq} AND placeseq = #{placeSeq})
+        ]]>
+    </insert>
+	<delete id="deleteMapPlace">
+		<![CDATA[
+		delete from mapplace where mapseq=#{mapSeq}
+		]]>
+	</delete>
+	<select id="getMapPlaceSeq" resultType="mapPlace">
+		<![CDATA[
+		select DISTINCT mapseq from mapplace where mapseq=#{mapSeq}
+		]]>
+	</select>
+	<delete id="deleteMapPlaceSeq">
+	<![CDATA[
+		delete from mapplace where placeSeq=#{placeSeq}
+	]]>
+	</delete>
+</mapper>
