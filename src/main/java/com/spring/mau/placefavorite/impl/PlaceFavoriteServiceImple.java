@@ -21,5 +21,4 @@ public class PlaceFavoriteServiceImple implements PlaceFavoriteService{
 	public PlaceFavoriteVO getPlaceFavorite(PlaceFavoriteVO fvo) {
 		return placeFavoriteDAO.getPlaceFavorite(fvo);
 	}
-
 }

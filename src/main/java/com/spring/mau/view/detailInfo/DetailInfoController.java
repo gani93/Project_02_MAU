@@ -86,7 +86,6 @@ public class DetailInfoController {
 			photoUpload.transferTo(new File("C:/imgPath/" + fileName));
 			System.out.println("사진 업로드 성공!");
 		}
-//		uvo.setPhotoUpload(photoUpload);
 		uvo.setPlaceSeq(placeSeq);
 		uvo.setPhotoName(fileName);
 		uploadService.insertPhoto(uvo);

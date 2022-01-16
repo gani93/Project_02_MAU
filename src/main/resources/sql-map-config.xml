@@ -18,8 +18,6 @@
         <typeAlias type="com.spring.mau.placefavorite.PlaceFavoriteVO" alias="placeFavorite"/>
     </typeAliases>
     
-
-    
     <mappers>
     	<mapper resource="mappings/mapfavorite-mapping.xml"/>
     	<mapper resource="mappings/map-mapping.xml"/>

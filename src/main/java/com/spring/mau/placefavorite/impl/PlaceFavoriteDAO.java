@@ -29,8 +29,4 @@ public class PlaceFavoriteDAO {
 		System.out.println("PlaceFavoriteDAO==>getPlaceFavorite 실행");
 		return mybatis.selectOne("PlaceFavoriteDAO.getPlaceFavorite", fvo);
 	}
-//	public MapVO getFavoriteUserSeqId(MapFavoriteVO vo) {
-//		System.out.println("MapFavoriteDAO==>getFavoriteUserSeqId 실행");
-//		return mybatis.selectOne("MapFavoriteDAO.getFavoriteUserSeqId", vo);
-//	}
 }

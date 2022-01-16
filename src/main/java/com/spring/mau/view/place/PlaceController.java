@@ -233,11 +233,7 @@ public class PlaceController {
 	         vo2 = mapViewService.getPlace2(vo2);
 	         fvPlace.add(vo2);
 	      }
-	      /*
-	       * vo2.setUserSeqId(userSeqId); List<MapViewVO> placeList =
-	       * placeService.getfavoritePlaceSeq(vo2); model.addAttribute("placeList",
-	       * placeList);
-	       */
+	      
 	      model.addAttribute("placeList",fvPlace);
 	      return new ModelAndView("guider/myfavorite.jsp");
 	   }
@@ -263,7 +259,4 @@ public class PlaceController {
 		   userPlaceService.deleteUserPlaceSeqMapSeq(userPlaceVo);
 		   return new ModelAndView("redirect:/guiderMap/"+mapSeq);
 	   }
-	
-
-	
 }
